@@ -5,6 +5,7 @@ Writes a fixed English summary of the world's news of Wednesday
 
 Deterministic and offline: no network, no randomness, no dates or
 other varying input. Running it twice writes identical bytes.
+The summary is fixed text, so both runs produce the same file.
 """
 
 from pathlib import Path
@@ -43,6 +44,7 @@ SUMMARY = (
 
 
 def main() -> None:
+    # Write as UTF-8, exactly the fixed summary above, nothing else.
     output = Path("/output/entry.txt")
     try:
         output.parent.mkdir(parents=True, exist_ok=True)
